@@ -21,6 +21,15 @@ const someOlder = people.some(function (ppl) {
   return 2022 - ppl.year > 19;
 });
 console.log(someOlder);
+
+//tutorial edition
+const isAdult = people.some(function (person) {
+  const currentYear = new Date().getFullYear();
+  if (currentYear - person.year >= 19) {
+    return true;
+  }
+});
+
 // Array.prototype.every() // is everyone 19 or older?
 
 const everyOlder = people.every(function (ppl) {
@@ -49,3 +58,11 @@ console.log(comments[findId2].text);
 
 comments.splice(findId2, 1);
 console.log(comments);
+
+//instead of array.splice(), we can do
+const newComments = [
+  ...comments.slice(0, findId2), //start and end until the index is reached| COMMA
+  ...comments.slice(findId2), //start from the index til the end
+];
+
+console.log(newComments);
